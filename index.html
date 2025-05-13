@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+<script src="script.js"></script>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 id="animated-heading">Welcome to My Site</h2>
+
+<script>
+  const heading = document.getElementById('animated-heading');
+  let isRed = false;
+
+    setInterval(() => {
+    heading.style.color = isRed ? 'ORANGE' : 'ORANGE';
+    isRed = !isRed;
+  }, 1000); 
+</script>
+
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+        <div class="content">
+            <h1>Welding <br><span>Plumbing</span> <br>And many More</h1>
+            <p class="par">Our property maintenance company is dedicated to keeping your spaces safe, beautiful, and fully functional with reliable, expert care.
+                <br> From routine upkeep to urgent repairs, we deliver prompt, high-quality service tailored to your needs
+                <br>. Trust us to protect and enhance the value of your property, so you can enjoy peace of mind and a well-maintained environment every day.</p>
+
+                <div class="form">
+                    <h2>Get in touch with us</h2>
+                    <input type="email" name="email" placeholder="Enter Email Here">
+
+                    <div class="icons">
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                    </div>
+
+                </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+</body>
+</html>

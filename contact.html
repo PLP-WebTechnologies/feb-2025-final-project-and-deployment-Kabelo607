@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="style2.css" />
+  <title>Home Repair Customer Info Form</title>
+
+</head>
+<body>
+
+  <h1>Home Repair Service Request</h1>
+
+  <form id="repairForm">
+    <label for="fullName">Full Name *</label>
+    <input type="text" id="fullName" name="fullName" required />
+
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9\s\-\+\\(\\)]{7,}" required placeholder="e.g. +1 (555) 123-4567" />
+
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" name="email" required placeholder="example@email.com" />
+
+    <label for="address">Home Address *</label>
+    <textarea id="address" name="address" rows="3" required placeholder="Street, City, State, ZIP"></textarea>
+
+    <label for="repairType">Type of Repair *</label>
+    <select id="repairType" name="repairType" required>
+      <option value="" disabled selected>Select a repair type</option>
+      <option value="plumbing">Plumbing</option>
+      <option value="electrical">Electrical</option>
+      <option value="hvac">HVAC</option>
+      <option value="carpentry">Carpentry</option>
+      <option value="painting">Painting</option>
+      <option value="roofing">Roofing</option>
+      <option value="general">General Maintenance</option>
+    </select>
+
+    <label for="preferredDate">Preferred Date for Service</label>
+    <input type="date" id="preferredDate" name="preferredDate" min="" />
+
+    <label for="details">Additional Details</label>
+    <textarea id="details" name="details" rows="4" placeholder="Describe the issue or special requests"></textarea>
+
+    <button type="submit">Submit Request</button>
+  </form>
+
+  <div class="confirmation" id="confirmationMessage">
+    Thank you for submitting your request! We will contact you shortly.
+  </div>
+
+  <script>
+    // Set minimum date for preferredDate input to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('preferredDate').setAttribute('min', today);
+
+    const form = document.getElementById('repairForm');
+    const confirmation = document.getElementById('confirmationMessage');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Simple form validation (HTML handles most)
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Gather form data
+      const formData = {
+        fullName: form.fullName.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim(),
+        address: form.address.value.trim(),
+        repairType: form.repairType.value,
+        preferredDate: form.preferredDate.value,
+        details: form.details.value.trim(),
+      };
+
+      // Here you can handle formData: send to server or display in console
+      console.log('Customer Repair Request:', formData);
+
+      // Show confirmation message
+      confirmation.style.display = 'block';
+
+      // Reset the form
+      form.reset();
+
+      // Reset select placeholder if needed
+      form.repairType.selectedIndex = 0;
+    });
+  </script>
+
+</body>
+</html>
